@@ -51,6 +51,11 @@
             Action1 = new DataGridViewButtonColumn();
             appointmentBindingSource1 = new BindingSource(components);
             tabPage3 = new TabPage();
+            button2 = new Button();
+            button1 = new Button();
+            filterName = new TextBox();
+            filterId = new TextBox();
+            filterCount = new TextBox();
             saceButton2 = new Button();
             MaterialsGrid = new DataGridView();
             idDataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
@@ -60,6 +65,7 @@
             Action2 = new DataGridViewButtonColumn();
             materialBindingSource = new BindingSource(components);
             tabPage4 = new TabPage();
+            refreshUsedMaterialsBtn = new Button();
             addUsedMaterialBtn = new Button();
             ыфмуИгеещт3 = new Button();
             usedMaterialGrid = new DataGridView();
@@ -70,7 +76,6 @@
             usedMaterialBindingSource = new BindingSource(components);
             appointmentBindingSource = new BindingSource(components);
             label1 = new Label();
-            refreshUsedMaterialsBtn = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MasterSlotsGrid).BeginInit();
@@ -265,6 +270,11 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button2);
+            tabPage3.Controls.Add(button1);
+            tabPage3.Controls.Add(filterName);
+            tabPage3.Controls.Add(filterId);
+            tabPage3.Controls.Add(filterCount);
             tabPage3.Controls.Add(saceButton2);
             tabPage3.Controls.Add(MaterialsGrid);
             tabPage3.Location = new Point(4, 24);
@@ -275,9 +285,53 @@
             tabPage3.Text = "Материалы";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            button2.Location = new Point(720, 15);
+            button2.Name = "button2";
+            button2.Size = new Size(118, 23);
+            button2.TabIndex = 6;
+            button2.Text = "сбросить фильтр";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(582, 15);
+            button1.Name = "button1";
+            button1.Size = new Size(132, 23);
+            button1.TabIndex = 5;
+            button1.Text = "применить фильтр";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // filterName
+            // 
+            filterName.Location = new Point(293, 15);
+            filterName.Name = "filterName";
+            filterName.PlaceholderText = "поиск по наименованию";
+            filterName.Size = new Size(154, 23);
+            filterName.TabIndex = 4;
+            // 
+            // filterId
+            // 
+            filterId.Location = new Point(180, 15);
+            filterId.Name = "filterId";
+            filterId.PlaceholderText = "поиск по id";
+            filterId.Size = new Size(93, 23);
+            filterId.TabIndex = 3;
+            // 
+            // filterCount
+            // 
+            filterCount.Location = new Point(37, 15);
+            filterCount.Name = "filterCount";
+            filterCount.PlaceholderText = "поиск по кол-ву";
+            filterCount.Size = new Size(122, 23);
+            filterCount.TabIndex = 2;
+            // 
             // saceButton2
             // 
-            saceButton2.Location = new Point(852, 15);
+            saceButton2.Location = new Point(861, 15);
             saceButton2.Name = "saceButton2";
             saceButton2.Size = new Size(87, 23);
             saceButton2.TabIndex = 1;
@@ -345,6 +399,16 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Использованные материалы";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // refreshUsedMaterialsBtn
+            // 
+            refreshUsedMaterialsBtn.Location = new Point(631, 17);
+            refreshUsedMaterialsBtn.Name = "refreshUsedMaterialsBtn";
+            refreshUsedMaterialsBtn.Size = new Size(84, 23);
+            refreshUsedMaterialsBtn.TabIndex = 4;
+            refreshUsedMaterialsBtn.Text = "Обновить";
+            refreshUsedMaterialsBtn.UseVisualStyleBackColor = true;
+            refreshUsedMaterialsBtn.Click += refreshUsedMaterialsBtn_Click;
             // 
             // addUsedMaterialBtn
             // 
@@ -423,16 +487,6 @@
             label1.TabIndex = 1;
             label1.Text = "Администрирование";
             // 
-            // refreshUsedMaterialsBtn
-            // 
-            refreshUsedMaterialsBtn.Location = new Point(631, 17);
-            refreshUsedMaterialsBtn.Name = "refreshUsedMaterialsBtn";
-            refreshUsedMaterialsBtn.Size = new Size(84, 23);
-            refreshUsedMaterialsBtn.TabIndex = 4;
-            refreshUsedMaterialsBtn.Text = "Обновить";
-            refreshUsedMaterialsBtn.UseVisualStyleBackColor = true;
-            refreshUsedMaterialsBtn.Click += refreshUsedMaterialsBtn_Click;
-            // 
             // MasterPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -450,6 +504,7 @@
             ((System.ComponentModel.ISupportInitialize)MasterClientsGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)appointmentBindingSource1).EndInit();
             tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)MaterialsGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)materialBindingSource).EndInit();
             tabPage4.ResumeLayout(false);
@@ -504,5 +559,10 @@
         private DataGridViewTextBoxColumn tattooDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn Action3;
         private Button refreshUsedMaterialsBtn;
+        private Button button1;
+        private TextBox filterName;
+        private TextBox filterId;
+        private TextBox filterCount;
+        private Button button2;
     }
 }

@@ -154,5 +154,45 @@ namespace WinFormsApp1
 
             usedMaterialGrid.DataSource = db.UsedMaterials.Local.ToList();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            db.Materials.Load();
+
+            List<Material> materials = db.Materials.Local.ToList();
+
+            if (filterCount.Text != "")
+            {
+                materials = materials.Where(x => x.Count == int.Parse(filterCount.Text)).ToList();
+            }
+
+            if (filterId.Text != "")
+            {
+                materials = materials.Where(x => x.Id == int.Parse(filterId.Text)).ToList();
+            }
+
+            if (filterName.Text != "")
+            {
+                materials = materials.Where(x => x.Name.ToLower().Contains(filterName.Text)).ToList();
+            }
+
+            MaterialsGrid.DataSource = materials;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            db.Materials.Load();
+
+            List<Material> materials = db.Materials.Local.ToList();
+
+            MaterialsGrid.DataSource = materials;
+
+            filterId.Text = "";
+
+            filterName.Text = "";
+
+            filterCount.Text = "";
+        }
     }
 }
